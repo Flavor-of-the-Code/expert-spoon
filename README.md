@@ -3,6 +3,25 @@
 
 ## Tooling
 
+### [cargo-watch](https://crates.io/crates/cargo-watch)
+
+#### Install
+```bash
+cargo install cargo-watch
+```
+
+#### Restarting an application only if the build/check succeeds
+
+**In terminal 1, run the fast `check` command:**
+```bash
+cargo watch --ignore README.md -x check -s 'touch .trigger'
+```
+
+**In terminal 2, if the previous `check` succeeds, run the program:**
+```bash
+cargo watch --no-gitignore -w .trigger -x run
+```
+
 ### [rustfmt](https://rust-lang.github.io/rustfmt/?version=v1.4.38&search=)
 ```bash
 cargo fmt

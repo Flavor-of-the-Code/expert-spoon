@@ -8,5 +8,8 @@
     "--message-format=json",
     "--all-targets",
     "--allow-dirty"
-  ]
+  ],
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  }
 }

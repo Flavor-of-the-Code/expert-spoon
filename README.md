@@ -1,6 +1,13 @@
 # expert-spoon
 [Project board](https://github.com/orgs/Flavor-of-the-Code/projects/3)
 
+## Tooling
+
+### [rustfmt](https://rust-lang.github.io/rustfmt/?version=v1.4.38&search=)
+
+```bash
+cargo fmt
+```
 ## Production
 
 ```bash

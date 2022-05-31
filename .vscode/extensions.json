@@ -5,6 +5,7 @@
     "aaron-bond.better-comments",
     "streetsidesoftware.code-spell-checker",
     "donjayamanne.githistory",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "vadimcn.vscode-lldb"
   ]
 }

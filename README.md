@@ -42,3 +42,15 @@ cargo run
 ```bash
 cargo check
 ```
+
+## [Tests](https://doc.rust-lang.org/cargo/guide/tests.html)
+
+> Cargo looks for tests to run in two places: in each of your src files and any tests in tests/. Tests in your src files should be unit tests, and tests in tests/ should be integration-style tests. 
+
+[Testing guide](https://doc.rust-lang.org/book/ch11-00-testing.html)
+
+```bash
+cargo test
+```
+
+

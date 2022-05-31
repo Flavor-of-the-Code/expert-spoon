@@ -8,6 +8,12 @@
 ```bash
 cargo fmt
 ```
+
+### [rustfix](https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html#fix-your-code-with-rustfix)
+```bash
+cargo fix
+```
+
 ## Production
 
 ```bash

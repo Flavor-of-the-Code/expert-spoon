@@ -1,8 +1,8 @@
 use std::ops::Mul;
 
 fn needed_xp(level: u32) -> u32 {
-  let exponent = 1.5_f32;
-  let base_xp = 1000_f32;
+  let exponent = 1.5;
+  let base_xp = 1000.0;
   let level_pow_exponent = (level as f32).powf(exponent);
   base_xp.mul(level_pow_exponent) as u32
 }

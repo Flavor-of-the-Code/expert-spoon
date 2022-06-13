@@ -39,13 +39,13 @@ pub trait TCharacter {
     base_xp.mul(level_pow_exponent) as i32
   }
 
-  fn create_level_up(&self) -> (i32, u32) {
+  fn create_lvl_up(&self) -> (i32, u32) {
     let xp = -self.total_xp_needed();
     let lvl = 1;
     (xp, lvl)
   }
 
-  fn apply_level(&mut self, levelup: (i32, u32));
+  fn apply_lvl(&mut self, levelup: (i32, u32));
 }
 
 impl TCharacter for SCharacter {
@@ -74,7 +74,7 @@ impl TCharacter for SCharacter {
     self.can_lvl_up()
   }
 
-  fn apply_level(&mut self, levelup: (i32, u32)) {
+  fn apply_lvl(&mut self, levelup: (i32, u32)) {
     self.xp += levelup.0;
     self.lvl += levelup.1;
   }
@@ -82,8 +82,8 @@ impl TCharacter for SCharacter {
   fn apply_xp(&mut self, amount: i32) {
     self.add_xp(amount);
     while self.can_lvl_up() {
-      let levelup = self.create_level_up();
-      self.apply_level(levelup);
+      let levelup = self.create_lvl_up();
+      self.apply_lvl(levelup);
     }
   }
 }

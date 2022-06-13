@@ -20,8 +20,10 @@ pub trait TCharacter {
   fn name(&self) -> &'static str;
   fn lvl(&self) -> u32;
   fn xp(&self) -> i32;
-  fn add_xp(&mut self, amount: i32) -> bool;
+
+  fn add_xp(&mut self, amount: i32);
   fn apply_xp(&mut self, amount: i32);
+  fn apply_lvl(&mut self, gain: (i32, u32));
 
   /**
    * Traits can provide default method definitions.
@@ -45,19 +47,17 @@ pub trait TCharacter {
     (xp, lvl)
   }
 
-  fn apply_lvl(&mut self, levelup: (i32, u32));
-
   fn print(&self) {
-    println!("---------------");
+    println!("------------------------------");
     println!("Name: {:?}", self.name());
     println!("Level: {:?}", self.lvl());
     println!(
-      "XP: {:?} / {:?} (remaining: {:?})",
+      "XP: {:?} / {:?} ({:?})",
       self.xp(),
       self.total_xp_needed(),
       self.total_xp_needed() - self.xp()
     );
-    println!("---------------");
+    println!("------------------------------");
   }
 }
 
@@ -82,21 +82,21 @@ impl TCharacter for SCharacter {
     self.xp
   }
 
-  fn add_xp(&mut self, amount: i32) -> bool {
+  fn add_xp(&mut self, amount: i32) {
     self.xp += amount;
-    self.can_lvl_up()
   }
 
-  fn apply_lvl(&mut self, levelup: (i32, u32)) {
-    self.xp += levelup.0;
-    self.lvl += levelup.1;
+  fn apply_lvl(&mut self, gain: (i32, u32)) {
+    let (xp, lvl) = gain;
+    self.xp += xp;
+    self.lvl += lvl;
   }
 
   fn apply_xp(&mut self, amount: i32) {
     self.add_xp(amount);
     while self.can_lvl_up() {
-      let levelup = self.create_lvl_up();
-      self.apply_lvl(levelup);
+      let gain = self.create_lvl_up();
+      self.apply_lvl(gain);
       self.print();
     }
   }

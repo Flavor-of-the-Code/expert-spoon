@@ -6,4 +6,6 @@ fn main() {
   assert_eq!(dennis.total_xp_needed(), 1000);
   dennis.apply_xp(10001);
   assert_eq!(dennis.lvl(), 4);
+  assert_eq!(dennis.xp(), 977);
+  assert_eq!(dennis.total_xp_needed(), 8000);
 }

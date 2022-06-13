@@ -46,6 +46,19 @@ pub trait TCharacter {
   }
 
   fn apply_lvl(&mut self, levelup: (i32, u32));
+
+  fn print(&self) {
+    println!("---------------");
+    println!("Name: {:?}", self.name());
+    println!("Level: {:?}", self.lvl());
+    println!(
+      "XP: {:?} / {:?} (remaining: {:?})",
+      self.xp(),
+      self.total_xp_needed(),
+      self.total_xp_needed() - self.xp()
+    );
+    println!("---------------");
+  }
 }
 
 impl TCharacter for SCharacter {
@@ -84,6 +97,7 @@ impl TCharacter for SCharacter {
     while self.can_lvl_up() {
       let levelup = self.create_lvl_up();
       self.apply_lvl(levelup);
+      self.print();
     }
   }
 }

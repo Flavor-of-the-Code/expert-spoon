@@ -1,14 +1,14 @@
 use std::ops::Mul;
 
-pub struct Noob {
+pub struct Player {
   name: &'static str,
   lvl: u32,
   xp: i32,
 }
 
-impl Noob {
-  pub fn new(name: &'static str) -> Noob {
-    Noob {
+impl Player {
+  pub fn new(name: &'static str) -> Player {
+    Player {
       name,
       lvl: 1,
       xp: 0,
